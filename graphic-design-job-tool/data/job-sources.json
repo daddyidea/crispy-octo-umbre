@@ -1,0 +1,12 @@
+﻿{
+  "googleJobs": "https://www.google.com/search?q=graphic+designer+jobs&ibp=htl;jobs",
+  "remoteok": "https://remoteok.com/api",
+  "jobicy": "https://jobicy.com/api/v2/remote-jobs?count=50&tag=design",
+  "arbeitnow": "https://www.arbeitnow.com/api/job-board-api",
+  "remotive": "https://remotive.com/api/remote-jobs?category=design",
+  "joobleRss": "https://jooble.org/rss-vacancy-graphical-designer",
+  "indeedRss": "https://www.indeed.com/rss?q=graphic+designer&l=",
+  "behanceRss": "https://www.behance.net/joblist/rss",
+  "dribbbleRss": "https://dribbble.com/jobs.rss",
+  "aigaRss": "https://designjobs.aiga.org/jobsrss/"
+}

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Graphic Design Job Application Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#1a1a2e" />
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <aside class="left-sidebar">
+      <h1>Design Apply Hub</h1>
+      <nav id="tabNav" class="tab-nav">
+        <button data-tab="dashboard" class="tab-btn active">🏠 Dashboard</button>
+        <button data-tab="browse" class="tab-btn">🔍 Browse Jobs</button>
+        <button data-tab="selected" class="tab-btn">✅ Selected Jobs</button>
+        <button data-tab="saved" class="tab-btn">⭐ Saved Jobs</button>
+        <button data-tab="applications" class="tab-btn">📨 Applications</button>
+        <button data-tab="profile" class="tab-btn">👤 My Profile</button>
+        <button data-tab="settings" class="tab-btn">⚙️ Settings</button>
+      </nav>
+      <section class="filter-panel" id="filterPanel">
+        <h2>Filters</h2>
+        <input id="searchInput" type="text" placeholder="Search title/company" />
+        <select id="locationFilter"></select>
+        <label><input type="checkbox" id="remoteOnlyFilter" /> Remote only</label>
+        <select id="experienceFilter"></select>
+        <select id="jobTypeFilter"></select>
+        <label>Min Match % <input type="range" min="0" max="100" value="0" id="matchSlider" /><span id="matchSliderValue">0</span></label>
+        <label>Min Salary (USD)
+          <input id="salaryMinFilter" type="number" min="0" step="1000" placeholder="0" />
+        </label>
+        <select id="dateFilter">
+          <option value="all">Any time</option>
+          <option value="1">Last 24h</option>
+          <option value="7">Last week</option>
+          <option value="30">Last month</option>
+        </select>
+        <select id="sortFilter">
+          <option value="match">Best Match</option>
+          <option value="newest">Newest</option>
+          <option value="salary">Salary high-low</option>
+        </select>
+      </section>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <div class="stats" id="topStats"></div>
+        <div class="top-actions">
+          <button id="refreshJobsBtn">Refresh Jobs</button>
+          <button id="themeToggleBtn">Toggle Theme</button>
+          <button id="viewToggleBtn">Grid/List</button>
+        </div>
+      </header>
+
+      <section id="dashboardTab" class="tab-panel active"></section>
+      <section id="browseTab" class="tab-panel">
+        <div class="bottom-actions">
+          <button id="selectVisibleBtn">Select All Visible</button>
+          <button id="select80Btn">Select 80%+</button>
+          <button id="selectRemoteBtn">Select Remote</button>
+          <button id="selectPreferredCountryBtn">Select Preferred Country</button>
+          <button id="deselectAllBtn">Deselect All</button>
+        </div>
+        <div id="loadingState" class="loading hidden">Loading jobs...</div>
+        <div id="recommendationBuckets"></div>
+        <div id="jobsContainer" class="jobs-grid"></div>
+      </section>
+      <section id="selectedTab" class="tab-panel"></section>
+      <section id="savedTab" class="tab-panel"></section>
+      <section id="applicationsTab" class="tab-panel"></section>
+      <section id="profileTab" class="tab-panel"></section>
+      <section id="settingsTab" class="tab-panel"></section>
+    </main>
+
+    <aside class="right-panel" id="rightPanel"></aside>
+  </div>
+
+  <dialog id="jobDetailModal" class="modal">
+    <article id="jobDetailContent"></article>
+    <button onclick="document.getElementById('jobDetailModal').close()">Close</button>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/matcher.js"></script>
+  <script src="js/jobs.js"></script>
+  <script src="js/tracker.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
